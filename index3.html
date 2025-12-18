@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Chrysanthemum Club</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&family=Montserrat:wght@300;700&family=Playfair+Display:ital,wght@0,700;1,900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --vintage-gold: #c5a059;
+            --deep-green: #0d1a16;
+            --off-white: #e8e2d6;
+            --accent-red: #8b0000;
+        }
+
+        body {
+            background-color: var(--deep-green);
+            background-image: radial-gradient(circle at 50% 50%, rgba(197, 160, 89, 0.05) 0%, transparent 80%);
+            color: var(--off-white);
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            padding: 60px 20px;
+            min-height: 100vh;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 80px;
+            position: relative;
+        }
+
+        /* The Gothic / Hipster Title */
+        .club-title {
+            font-family: 'UnifrakturMaguntia', serif;
+            font-size: clamp(3.5rem, 12vw, 6rem);
+            color: var(--vintage-gold);
+            margin: 0;
+            line-height: 1;
+            text-shadow: 3px 3px 0px rgba(0,0,0,0.5);
+        }
+
+        .establishment-tag {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 1.2rem;
+            letter-spacing: 2px;
+            border-top: 1px solid var(--vintage-gold);
+            border-bottom: 1px solid var(--vintage-gold);
+            padding: 10px 40px;
+            display: inline-block;
+            margin-top: 10px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 40px;
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .card-link {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .card {
+            background: rgba(0, 0, 0, 0.4);
+            border: 1px solid #2a3d36;
+            padding: 40px;
+            position: relative;
+            transition: all 0.5s ease;
+            outline: 1px solid transparent;
+            outline-offset: -10px;
+        }
+
+        /* Ornamental corners */
+        .card::before {
+            content: "✦";
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            color: var(--vintage-gold);
+            font-size: 0.8rem;
+        }
+
+        .card:hover {
+            background: #152922;
+            outline: 1px solid var(--vintage-gold);
+            transform: scale(1.02);
+        }
+
+        .category {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 300;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            color: var(--vintage-gold);
+            display: block;
+            margin-bottom: 15px;
+        }
+
+        .name {
+            font-family: 'Playfair Display', serif;
+            font-weight: 900;
+            font-size: 2.2rem;
+            line-height: 1.1;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .location {
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+            opacity: 0.7;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .location::after {
+            content: "";
+            height: 1px;
+            flex-grow: 1;
+            background: linear-gradient(to right, var(--vintage-gold), transparent);
+        }
+
+        .visit-btn {
+            margin-top: 25px;
+            display: inline-block;
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--vintage-gold);
+            border: 1px solid var(--vintage-gold);
+            padding: 8px 15px;
+            transition: all 0.3s;
+        }
+
+        .card:hover .visit-btn {
+            background: var(--vintage-gold);
+            color: var(--deep-green);
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 100px;
+            padding-bottom: 40px;
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            opacity: 0.5;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1 class="club-title">The Chrysanthemum Club</h1>
+        <div class="establishment-tag">A Philadelphia Dining Syndicate</div>
+    </header>
+
+    <div class="grid">
+        <a href="https://www.google.com/maps/search/Pizzeria+Beddia+Philly" target="_blank" class="card-link">
+            <div class="card">
+                <span class="category">Pizza / Modern</span>
+                <span class="name">Pizzeria Beddia</span>
+                <span class="location">Fishtown</span>
+                <div class="visit-btn">Acquire Directions</div>
+            </div>
+        </a>
+
+        <a href="https://www.google.com/maps/search/The+Continental+Philly" target="_blank" class="card-link">
+            <div class="card">
+                <span class="category">Hipster / American</span>
+                <span class="name">The Continental</span>
+                <span class="location">Center City</span>
+                <div class="visit-btn">Acquire Directions</div>
+            </div>
+        </a>
+
+        <a href="https://www.google.com/maps/search/1-900-Ice-Cream+Philly" target="_blank" class="card-link">
+            <div class="card">
+                <span class="category">Ice Cream</span>
+                <span class="name">1-900-Ice-Cream</span>
+                <span class="location">Fishtown</span>
+                <div class="visit-btn">Acquire Directions</div>
+            </div>
+        </a>
+
+        <a href="https://www.google.com/maps/search/Le+Virtu+Philly" target="_blank" class="card-link">
+            <div class="card">
+                <span class="category">Italian</span>
+                <span class="name">Le Virtù</span>
+                <span class="location">East Passyunk</span>
+                <div class="visit-btn">Acquire Directions</div>
+            </div>
+        </a>
+    </div>
+
+    <footer>
+        Members Only. Est. 2025
+    </footer>
+
+</body>
+</html>
