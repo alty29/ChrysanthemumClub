@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Philly Food Guide</title>
+    <title>The Chrysanthemum Club</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;700&family=Playfair+Display:ital,wght@0,900;1,900&display=swap" rel="stylesheet">
@@ -57,6 +57,13 @@
             max-width: 1100px;
         }
 
+        /* Card Styling & Link Reset */
+        .card-link {
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+
         .card {
             background: var(--card-bg);
             border: 1px solid rgba(255,255,255,0.1);
@@ -64,7 +71,7 @@
             border-radius: 2px;
             transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
             position: relative;
-            overflow: hidden;
+            cursor: pointer;
         }
 
         .card:hover {
@@ -98,9 +105,21 @@
             gap: 5px;
         }
 
-        .location::before {
-            content: '→';
+        /* "Open Maps" hint that shows on hover */
+        .map-hint {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
             color: var(--accent);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .card:hover .map-hint {
+            opacity: 1;
         }
 
         footer {
@@ -120,29 +139,41 @@
     </header>
 
     <div class="grid">
-        <div class="card">
-            <span class="category">Pizza / Modern</span>
-            <span class="name">Pizzeria Beddia</span>
-            <span class="location">Fishtown</span>
-        </div>
+        <a href="https://www.google.com/maps/search/Pizzeria+Beddia+Philadelphia" target="_blank" class="card-link">
+            <div class="card">
+                <span class="category">Pizza / Modern</span>
+                <span class="name">Pizzeria Beddia</span>
+                <span class="location">Fishtown</span>
+                <span class="map-hint">Open Maps ↗</span>
+            </div>
+        </a>
 
-        <div class="card">
-            <span class="category">Hipster / American</span>
-            <span class="name">The Continental</span>
-            <span class="location">Center City</span>
-        </div>
+        <a href="https://www.google.com/maps/search/The+Continental+Midtown+Philadelphia" target="_blank" class="card-link">
+            <div class="card">
+                <span class="category">Hipster / American</span>
+                <span class="name">The Continental</span>
+                <span class="location">Center City</span>
+                <span class="map-hint">Open Maps ↗</span>
+            </div>
+        </a>
 
-        <div class="card">
-            <span class="category">Ice Cream</span>
-            <span class="name">1-900-Ice-Cream</span>
-            <span class="location">Fishtown</span>
-        </div>
+        <a href="https://www.google.com/maps/search/1-900-Ice-Cream+Philadelphia" target="_blank" class="card-link">
+            <div class="card">
+                <span class="category">Ice Cream</span>
+                <span class="name">1-900-Ice-Cream</span>
+                <span class="location">Fishtown</span>
+                <span class="map-hint">Open Maps ↗</span>
+            </div>
+        </a>
 
-        <div class="card">
-            <span class="category">Italian</span>
-            <span class="name">Le Virtù</span>
-            <span class="location">East Passyunk</span>
-        </div>
+        <a href="https://www.google.com/maps/search/Le+Virtu+Philadelphia" target="_blank" class="card-link">
+            <div class="card">
+                <span class="category">Italian</span>
+                <span class="name">Le Virtù</span>
+                <span class="location">East Passyunk</span>
+                <span class="map-hint">Open Maps ↗</span>
+            </div>
+        </a>
     </div>
 
     <footer>
