@@ -10,12 +10,12 @@
     
     <style>
         :root {
-            /* Colors pulled from the moodier index2 style */
-            --bg-color: #1a1c1a;       /* Deep Charcoal/Forest Black */
-            --text-color: #e2e2d5;     /* Warm Bone White */
-            --accent-color: #c4a661;   /* Muted Gold */
-            --border-color: #3d403d;   /* Subtle divider color */
-            --tag-color: #c4a661;      /* Gold for labels */
+            /* The Purple Palette from index2 */
+            --bg-color: #1e132b;       /* Deep Midnight Purple */
+            --text-color: #ffffff;     /* Pure White */
+            --accent-color: #d8b4fe;   /* Soft Lavender / Light Purple */
+            --border-color: #3b2a54;   /* Muted Purple for dividers */
+            --hover-bg: #2d1d40;       /* Slightly lighter purple for hover */
         }
 
         * {
@@ -40,7 +40,6 @@
             padding: 50px 0;
         }
 
-        /* Header Styling from Index 1 */
         header {
             text-align: center;
             margin-bottom: 70px;
@@ -72,7 +71,6 @@
             color: var(--accent-color);
         }
 
-        /* List Layout from Index 1 */
         .restaurant-list {
             list-style: none;
         }
@@ -83,7 +81,7 @@
             align-items: baseline;
             padding: 25px 0;
             border-bottom: 1px solid var(--border-color);
-            transition: all 0.4s ease;
+            transition: all 0.3s ease;
         }
 
         .entry:last-child {
@@ -91,126 +89,11 @@
         }
 
         .entry:hover {
-            background-color: #222522; /* Subtle highlight on hover */
-            padding-left: 10px;
-            padding-right: 10px;
+            background-color: var(--hover-bg);
+            padding-left: 15px;
+            padding-right: 15px;
+            border-radius: 4px;
         }
 
         .info {
             display: flex;
-            flex-direction: column;
-        }
-
-        .name {
-            font-size: 1.6rem;
-            font-weight: 600;
-            color: var(--text-color);
-        }
-
-        .cuisine {
-            font-family: 'Space Mono', monospace;
-            font-size: 0.7rem;
-            color: var(--accent-color);
-            margin-top: 4px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .location {
-            font-family: 'Space Mono', monospace;
-            font-size: 0.8rem;
-            text-align: right;
-            color: #888;
-        }
-
-        /* Priority Tag */
-        .tag {
-            font-size: 0.55rem;
-            border: 1px solid var(--accent-color);
-            color: var(--accent-color);
-            padding: 2px 8px;
-            margin-left: 12px;
-            vertical-align: middle;
-            text-transform: uppercase;
-            font-family: 'Space Mono', monospace;
-            border-radius: 12px;
-        }
-
-        footer {
-            text-align: center;
-            margin-top: 80px;
-            font-family: 'Space Mono', monospace;
-            font-size: 0.65rem;
-            letter-spacing: 3px;
-            color: var(--accent-color);
-            opacity: 0.6;
-        }
-
-        /* Responsive */
-        @media (max-width: 500px) {
-            h1 { font-size: 2.8rem; }
-            .entry { flex-direction: column; gap: 8px; }
-            .location { text-align: left; margin-top: 5px; }
-        }
-    </style>
-</head>
-<body>
-
-    <div class="container">
-        <header>
-            <span class="icon">❀</span>
-            <span class="subtitle">EST. 2025 • FOR CHRISTINE</span>
-            <h1>The Chrysanthemum Club</h1>
-        </header>
-
-        <main>
-            <ul class="restaurant-list">
-                <li class="entry">
-                    <div class="info">
-                        <span class="name">Le Coucou <span class="tag">Priority</span></span>
-                        <span class="cuisine">French Fine Dining</span>
-                    </div>
-                    <span class="location">SoHo, NY</span>
-                </li>
-
-                <li class="entry">
-                    <div class="info">
-                        <span class="name">Sunday in Brooklyn</span>
-                        <span class="cuisine">American / Brunch</span>
-                    </div>
-                    <span class="location">Williamsburg</span>
-                </li>
-
-                <li class="entry">
-                    <div class="info">
-                        <span class="name">Nami Nori</span>
-                        <span class="cuisine">Japanese / Temaki</span>
-                    </div>
-                    <span class="location">West Village</span>
-                </li>
-
-                <li class="entry">
-                    <div class="info">
-                        <span class="name">Public Records</span>
-                        <span class="cuisine">Vegan / Hi-Fi Bar</span>
-                    </div>
-                    <span class="location">Gowanus</span>
-                </li>
-
-                <li class="entry">
-                    <div class="info">
-                        <span class="name">Double Chicken Please</span>
-                        <span class="cuisine">Craft Cocktails</span>
-                    </div>
-                    <span class="location">Lower East Side</span>
-                </li>
-            </ul>
-        </main>
-
-        <footer>
-            <p>A CURATED COLLECTION</p>
-        </footer>
-    </div>
-
-</body>
-</html>
