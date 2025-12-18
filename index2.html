@@ -6,178 +6,198 @@
     <title>The Chrysanthemum Club</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;700&family=Playfair+Display:ital,wght@0,900;1,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,600;1,300&family=Montserrat:wght@200;400&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg: #0a0a0a;
-            --card-bg: rgba(255, 255, 255, 0.05);
-            --accent: #ff3e3e;
-            --text: #ffffff;
-            --text-dim: #a0a0a0;
+            --bg: #fffcf9;
+            --accent: #b784a7;
+            --text: #2d3b2f;
+            --line: #e5d9d0;
         }
 
         body {
             background-color: var(--bg);
             color: var(--text);
-            font-family: 'Inter', sans-serif;
+            font-family: 'Cormorant Garamond', serif;
             margin: 0;
-            padding: 40px 20px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+            padding: 0;
+            overflow-x: hidden;
+        }
+
+        /* Decorative Background Elements */
+        body::before {
+            content: "✿";
+            position: fixed;
+            top: -50px;
+            right: -50px;
+            font-size: 20rem;
+            color: rgba(183, 132, 167, 0.03);
+            z-index: -1;
         }
 
         header {
+            height: 60vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
             text-align: center;
-            margin-bottom: 60px;
+            border-bottom: 1px solid var(--line);
+        }
+
+        .club-label {
+            font-family: 'Montserrat', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 8px;
+            font-size: 0.7rem;
+            margin-bottom: 20px;
+            color: var(--accent);
         }
 
         h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: clamp(3rem, 10vw, 5rem);
+            font-size: clamp(3rem, 12vw, 6rem);
+            font-weight: 300;
             margin: 0;
-            text-transform: uppercase;
-            font-style: italic;
-            letter-spacing: -2px;
+            line-height: 0.9;
         }
 
-        .subtitle {
+        h1 i {
+            display: block;
+            padding-left: 50px;
             color: var(--accent);
-            text-transform: uppercase;
-            letter-spacing: 4px;
-            font-weight: 700;
-            font-size: 0.9rem;
         }
 
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-            width: 100%;
-            max-width: 1100px;
+        /* The List Layout - No Cards */
+        .lookbook {
+            max-width: 900px;
+            margin: 100px auto;
+            padding: 0 20px;
         }
 
-        /* Card Styling & Link Reset */
-        .card-link {
+        .entry {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 120px;
             text-decoration: none;
             color: inherit;
-            display: block;
-        }
-
-        .card {
-            background: var(--card-bg);
-            border: 1px solid rgba(255,255,255,0.1);
-            padding: 30px;
-            border-radius: 2px;
-            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
             position: relative;
-            cursor: pointer;
         }
 
-        .card:hover {
-            background: rgba(255, 255, 255, 0.1);
-            transform: translateY(-5px);
-            border-color: var(--accent);
+        /* Alternating Alignment */
+        .entry:nth-child(even) {
+            text-align: right;
+            align-items: flex-end;
+        }
+
+        .entry-num {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 200;
+            font-size: 4rem;
+            color: var(--line);
+            line-height: 1;
+            margin-bottom: -20px;
+            transition: color 0.4s;
+        }
+
+        .entry:hover .entry-num {
+            color: var(--accent);
         }
 
         .category {
-            font-size: 0.75rem;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.65rem;
             text-transform: uppercase;
+            letter-spacing: 4px;
             color: var(--accent);
-            font-weight: 700;
             margin-bottom: 10px;
-            display: block;
         }
 
         .name {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.8rem;
-            margin-bottom: 5px;
-            display: block;
+            font-size: clamp(2.5rem, 8vw, 4rem);
+            font-weight: 600;
+            line-height: 1;
+            margin-bottom: 10px;
+            position: relative;
         }
 
         .location {
-            color: var(--text-dim);
-            font-size: 0.9rem;
-            font-weight: 300;
-            display: flex;
-            align-items: center;
-            gap: 5px;
+            font-style: italic;
+            font-size: 1.4rem;
+            opacity: 0.7;
         }
 
-        /* "Open Maps" hint that shows on hover */
-        .map-hint {
-            position: absolute;
-            bottom: 20px;
-            right: 20px;
-            font-size: 0.7rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            color: var(--accent);
-            opacity: 0;
-            transition: opacity 0.3s;
+        /* The Animated Line Underneath */
+        .entry::after {
+            content: "";
+            width: 60px;
+            height: 1px;
+            background: var(--accent);
+            margin-top: 30px;
+            transition: width 0.6s cubic-bezier(0.19, 1, 0.22, 1);
         }
 
-        .card:hover .map-hint {
-            opacity: 1;
+        .entry:hover::after {
+            width: 200px;
         }
 
         footer {
-            margin-top: 80px;
-            font-size: 0.8rem;
-            color: var(--text-dim);
+            padding: 100px 0;
+            text-align: center;
+            border-top: 1px solid var(--line);
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.6rem;
+            letter-spacing: 5px;
             text-transform: uppercase;
-            letter-spacing: 2px;
+        }
+
+        /* Mobile Adjustments */
+        @media (max-width: 600px) {
+            h1 i { padding-left: 0; }
+            .entry:nth-child(even) { text-align: left; align-items: flex-start; }
         }
     </style>
 </head>
 <body>
 
     <header>
-        <span class="subtitle">The Chrysanthemum Club</span>
-        <h1>Philadelphia</h1>
+        <span class="club-label">Private Collection</span>
+        <h1>The <i>Chrysanthemum</i> Club</h1>
     </header>
 
-    <div class="grid">
-        <a href="https://www.google.com/maps/search/Pizzeria+Beddia+Philadelphia" target="_blank" class="card-link">
-            <div class="card">
-                <span class="category">Pizza / Modern</span>
-                <span class="name">Pizzeria Beddia</span>
-                <span class="location">Fishtown</span>
-                <span class="map-hint">Open Maps ↗</span>
-            </div>
+    <main class="lookbook">
+        
+        <a href="https://www.google.com/maps/search/Pizzeria+Beddia+Fishtown" target="_blank" class="entry">
+            <span class="entry-num">01</span>
+            <span class="category">Pizza / Modern</span>
+            <span class="name">Pizzeria Beddia</span>
+            <span class="location">Fishtown</span>
         </a>
 
-        <a href="https://www.google.com/maps/search/The+Continental+Midtown+Philadelphia" target="_blank" class="card-link">
-            <div class="card">
-                <span class="category">Hipster / American</span>
-                <span class="name">The Continental</span>
-                <span class="location">Center City</span>
-                <span class="map-hint">Open Maps ↗</span>
-            </div>
+        <a href="https://www.google.com/maps/search/The+Continental+Center+City" target="_blank" class="entry">
+            <span class="entry-num">02</span>
+            <span class="category">Hipster / American</span>
+            <span class="name">The Continental</span>
+            <span class="location">Center City</span>
         </a>
 
-        <a href="https://www.google.com/maps/search/1-900-Ice-Cream+Philadelphia" target="_blank" class="card-link">
-            <div class="card">
-                <span class="category">Ice Cream</span>
-                <span class="name">1-900-Ice-Cream</span>
-                <span class="location">Fishtown</span>
-                <span class="map-hint">Open Maps ↗</span>
-            </div>
+        <a href="https://www.google.com/maps/search/1-900-Ice-Cream+Fishtown" target="_blank" class="entry">
+            <span class="entry-num">03</span>
+            <span class="category">Ice Cream</span>
+            <span class="name">1-900-Ice-Cream</span>
+            <span class="location">Fishtown</span>
         </a>
 
-        <a href="https://www.google.com/maps/search/Le+Virtu+Philadelphia" target="_blank" class="card-link">
-            <div class="card">
-                <span class="category">Italian</span>
-                <span class="name">Le Virtù</span>
-                <span class="location">East Passyunk</span>
-                <span class="map-hint">Open Maps ↗</span>
-            </div>
+        <a href="https://www.google.com/maps/search/Le+Virtu+East+Passyunk" target="_blank" class="entry">
+            <span class="entry-num">04</span>
+            <span class="category">Italian</span>
+            <span class="name">Le Virtù</span>
+            <span class="location">East Passyunk</span>
         </a>
-    </div>
+
+    </main>
 
     <footer>
-        &copy; 2025 Philadelphia Dining Guide
+        Est. 2025 • Philadelphia, PA
     </footer>
 
 </body>
