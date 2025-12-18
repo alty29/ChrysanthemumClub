@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Chrysanthemum Club</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-color: #FDFBF7; /* Cream/Off-white */
+            --text-color: #2C2C2C; /* Soft Charcoal */
+            --accent-color: #A09E8F; /* Muted Sage/Khaki */
+            --border-style: 1px solid var(--text-color);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: 'Cormorant Garamond', serif;
+            line-height: 1.6;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            border-top: var(--border-style);
+            border-bottom: var(--border-style);
+            padding: 40px 0;
+        }
+
+        /* Header Styling */
+        header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            font-weight: 400;
+            letter-spacing: -1px;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--accent-color);
+        }
+
+        /* The Flower Symbol */
+        .icon {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            display: block;
+            color: var(--text-color);
+        }
+
+        /* List Styling */
+        .restaurant-list {
+            list-style: none;
+        }
+
+        .entry {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            padding: 20px 0;
+            border-bottom: 1px solid #E5E3DC; /* Very subtle divider */
+            transition: opacity 0.3s ease;
+        }
+
+        .entry:last-child {
+            border-bottom: none;
+        }
+
+        .entry:hover {
+            opacity: 0.7;
+            cursor: default;
+        }
+
+        .info {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .name {
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        .cuisine {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.75rem;
+            color: #666;
+            margin-top: 5px;
+        }
+
+        .location {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.8rem;
+            text-align: right;
+        }
+
+        /* Priority Tag Styling */
+        .tag {
+            font-size: 0.6rem;
+            border: 1px solid var(--text-color);
+            padding: 2px 6px;
+            margin-left: 10px;
+            vertical-align: middle;
+            text-transform: uppercase;
+            font-family: 'Space Mono', monospace;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            margin-top: 60px;
+            font-family: 'Space Mono', monospace;
+            font-size: 0.7rem;
+            color: var(--accent-color);
+        }
+
+        /* Mobile Adjustments */
+        @media (max-width: 500px) {
+            h1 { font-size: 2.5rem; }
+            .entry { flex-direction: column; gap: 5px; }
+            .location { text-align: left; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <span class="icon">❀</span>
+            <p class="subtitle">EST. 2025 • For Christine</p>
+            <h1>The Chrysanthemum<br>Club</h1>
+        </header>
+
+        <main>
+            <ul class="restaurant-list">
+                <li class="entry">
+                    <div class="info">
+                        <span class="name">Pizzeria Beddia <span class="tag">Must Go</span></span>
+                        <span class="cuisine">Pizza / Modern</span>
+                    </div>
+                    <span class="location">Fishtown</span>
+                </li>
+
+                <li class="entry">
+                    <div class="info">
+                        <span class="name">The Continental</span>
+                        <span class="cuisine">Hipster / American</span>
+                    </div>
+                    <span class="location">Center City</span>
+                </li>
+
+                <li class="entry">
+                    <div class="info">
+                        <span class="name">1-900-Ice-Cream</span>
+                        <span class="cuisine">Ice Cream</span>
+                    </div>
+                    <span class="location">Fishtown</span>
+                </li>
+
+
+                <li class="entry">
+                    <div class="info">
+                        <span class="name">Le Virtue</span>
+                        <span class="cuisine">Italian</span>
+                    </div>
+                    <span class="location">East Passyunk</span>
+                </li>
+            </ul>
+        </main>
+
+        <footer>
+            <p>CURATED WITH LOVE</p>
+        </footer>
+    </div>
+
+</body>
+</html>
