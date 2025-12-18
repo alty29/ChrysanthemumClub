@@ -97,3 +97,110 @@
 
         .info {
             display: flex;
+            flex-direction: column;
+        }
+
+        .name {
+            font-size: 1.6rem;
+            font-weight: 600;
+            color: var(--text-color);
+        }
+
+        .cuisine {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.7rem;
+            color: var(--accent-color);
+            margin-top: 4px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .location {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.8rem;
+            text-align: right;
+            color: var(--accent-color);
+            opacity: 0.7;
+        }
+
+        .tag {
+            font-size: 0.55rem;
+            border: 1px solid var(--accent-color);
+            color: var(--accent-color);
+            padding: 2px 8px;
+            margin-left: 12px;
+            vertical-align: middle;
+            text-transform: uppercase;
+            font-family: 'Space Mono', monospace;
+            border-radius: 4px;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 80px;
+            font-family: 'Space Mono', monospace;
+            font-size: 0.65rem;
+            letter-spacing: 3px;
+            color: var(--accent-color);
+            opacity: 0.5;
+        }
+
+        @media (max-width: 500px) {
+            h1 { font-size: 2.8rem; }
+            .entry { flex-direction: column; gap: 8px; }
+            .location { text-align: left; margin-top: 5px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <span class="icon">❀</span>
+            <span class="subtitle">EST. 2025 • FOR CHRISTINE</span>
+            <h1>The Chrysanthemum Club</h1>
+        </header>
+
+        <main>
+            <ul class="restaurant-list">
+                <li class="entry">
+                    <div class="info">
+                        <span class="name">Le Coucou <span class="tag">Priority</span></span>
+                        <span class="cuisine">French Fine Dining</span>
+                    </div>
+                    <span class="location">SoHo</span>
+                </li>
+
+                <li class="entry">
+                    <div class="info">
+                        <span class="name">Sunday in Brooklyn</span>
+                        <span class="cuisine">American Brunch</span>
+                    </div>
+                    <span class="location">Williamsburg</span>
+                </li>
+
+                <li class="entry">
+                    <div class="info">
+                        <span class="name">Nami Nori</span>
+                        <span class="cuisine">Temaki Bar</span>
+                    </div>
+                    <span class="location">West Village</span>
+                </li>
+
+                <li class="entry">
+                    <div class="info">
+                        <span class="name">Double Chicken Please</span>
+                        <span class="cuisine">Cocktails</span>
+                    </div>
+                    <span class="location">LES</span>
+                </li>
+            </ul>
+        </main>
+
+        <footer>
+            <p>A PRIVATE COLLECTION</p>
+        </footer>
+    </div>
+
+</body>
+</html>
