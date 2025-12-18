@@ -10,11 +10,11 @@
     
     <style>
         :root {
-            --bg-dark: #160d21;        /* Darker, richer purple */
-            --bg-accent: #1e132b;      /* Original base purple */
+            --bg-dark: #160d21;
+            --bg-accent: #1e132b;
             --text-main: #ffffff;
             --text-dim: rgba(255, 255, 255, 0.6);
-            --gold-accent: #d8b4fe;    /* Lavender/Light Purple accent */
+            --gold-accent: #d8b4fe;
             --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
@@ -37,9 +37,9 @@
             max-width: 650px;
             margin: 0 auto;
             position: relative;
+            animation: fadeIn 1.2s ease-out;
         }
 
-        /* Sophisticated Header */
         header {
             text-align: center;
             margin-bottom: 100px;
@@ -74,7 +74,6 @@
             letter-spacing: -2px;
         }
 
-        /* Decorative Line */
         .divider {
             width: 40px;
             height: 1px;
@@ -83,26 +82,28 @@
             opacity: 0.4;
         }
 
-        /* The List */
         .restaurant-list {
             list-style: none;
             margin-top: 40px;
         }
 
+        /* Clean Link Styling */
         .entry {
             display: flex;
             justify-content: space-between;
             align-items: center;
             padding: 32px 0;
             border-bottom: 1px solid rgba(216, 180, 254, 0.1);
-            text-decoration: none;
+            text-decoration: none; /* Removes underline */
             color: inherit;
             transition: var(--transition);
+            cursor: pointer;
         }
 
         .entry:hover {
             border-bottom: 1px solid rgba(216, 180, 254, 0.5);
             transform: translateX(8px);
+            background: rgba(255, 255, 255, 0.02);
         }
 
         .info {
@@ -134,7 +135,6 @@
             text-align: right;
         }
 
-        /* Status Tag */
         .tag {
             font-size: 9px;
             border: 1px solid var(--gold-accent);
@@ -148,7 +148,6 @@
             font-weight: 400;
         }
 
-        /* Footer Decoration */
         footer {
             margin-top: 120px;
             text-align: center;
@@ -162,17 +161,11 @@
             text-transform: uppercase;
         }
 
-        /* Subtle Animation on Load */
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
-        .container {
-            animation: fadeIn 1.2s ease-out;
-        }
-
-        /* Mobile Optimization */
         @media (max-width: 600px) {
             body { padding: 40px 20px; }
             h1 { font-size: 3.2rem; }
@@ -187,57 +180,67 @@
     <div class="container">
         <header>
             <span class="icon">❀</span>
-            <span class="subtitle">A Private Collection</span>
+            <span class="subtitle">A Private Dining Collection</span>
             <h1>The Chrysanthemum Club</h1>
             <div class="divider"></div>
         </header>
 
         <main>
             <ul class="restaurant-list">
-                <li class="entry">
-                    <div class="info">
-                        <span class="name">Le Coucou <span class="tag">Priority</span></span>
-                        <span class="cuisine">French Modern</span>
-                    </div>
-                    <span class="location">SoHo</span>
+                <li>
+                    <a href="https://www.pizzeriabeddia.com/menu" class="entry" target="_blank">
+                        <div class="info">
+                            <span class="name">Pizzeria Beddia <span class="tag">Priority</span></span>
+                            <span class="cuisine">Pizza</span>
+                        </div>
+                        <span class="location">Fishtown</span>
+                    </a>
                 </li>
 
-                <li class="entry">
-                    <div class="info">
-                        <span class="name">Sunday in Brooklyn</span>
-                        <span class="cuisine">American Kitchen</span>
-                    </div>
-                    <span class="location">Williamsburg</span>
+                <li>
+                    <a href="https://www.levirtu.com/menu" class="entry" target="_blank">
+                        <div class="info">
+                            <span class="name">Le Virtù</span>
+                            <span class="cuisine">Italian</span>
+                        </div>
+                        <span class="location">East Passyunk</span>
+                    </a>
                 </li>
 
-                <li class="entry">
-                    <div class="info">
-                        <span class="name">Nami Nori</span>
-                        <span class="cuisine">Temaki Bar</span>
-                    </div>
-                    <span class="location">West Village</span>
+                <li>
+                    <a href="https://1900icecream.com/" class="entry" target="_blank">
+                        <div class="info">
+                            <span class="name">1-900-Ice-Cream</span>
+                            <span class="cuisine">Dessert</span>
+                        </div>
+                        <span class="location">Fishtown</span>
+                    </a>
                 </li>
 
-                <li class="entry">
-                    <div class="info">
-                        <span class="name">Double Chicken Please</span>
-                        <span class="cuisine">Craft Cocktails</span>
-                    </div>
-                    <span class="location">Lower East Side</span>
+                <li>
+                    <a href="https://www.delrossis.com/menu" class="entry" target="_blank">
+                        <div class="info">
+                            <span class="name">Del Rossi's</span>
+                            <span class="cuisine">Cheesesteaks</span>
+                        </div>
+                        <span class="location">Delivery</span>
+                    </a>
                 </li>
 
-                <li class="entry">
-                    <div class="info">
-                        <span class="name">Public Records</span>
-                        <span class="cuisine">Hi-Fi Lounge / Vegan</span>
-                    </div>
-                    <span class="location">Gowanus</span>
+                <li>
+                    <a href="https://www.dreamworldbakes.com/" class="entry" target="_blank">
+                        <div class="info">
+                            <span class="name">Dreamworld Bakes</span>
+                            <span class="cuisine">Bakery</span>
+                        </div>
+                        <span class="location">Fishtown</span>
+                    </a>
                 </li>
             </ul>
         </main>
 
         <footer>
-            <p class="footer-text">EST. 2025 • ADMIT ONE</p>
+            <p class="footer-text">EST. 2025 • WITH LOVE</p>
         </footer>
     </div>
 
